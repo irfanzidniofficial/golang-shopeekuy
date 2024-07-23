@@ -4,11 +4,18 @@ import (
 	"database/sql"
 	"golang-shopeekuy/src/util/config"
 	"golang-shopeekuy/src/util/routes"
+	"log"
 
+	"github.com/joho/godotenv"
 	"github.com/thedevsaddam/renderer"
 )
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+
 	cfg, err := config.LoadConfig()
 	if err != nil {
 		return
